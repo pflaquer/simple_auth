@@ -1,4 +1,6 @@
 const  express  =  require("express");
+require("./configs/dotenv");
+const  client  =  require("./configs/database");
 
 const app = express(); //Initialized express
 
@@ -18,3 +20,18 @@ app.listen(port, () => {
 console.log(`Here we go, Engines started at ${port}.`);
 
 })
+
+
+client.connect((err) => { //Connected Database
+
+if (err) {
+
+console.log(err);
+
+}
+
+else {
+
+console.log("Data logging initiated!");}
+
+});
